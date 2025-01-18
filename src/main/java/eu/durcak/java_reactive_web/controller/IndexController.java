@@ -39,7 +39,7 @@ public class IndexController {
                 .appendValue(YEAR, 4, 10, SignStyle.EXCEEDS_PAD)
                 .toFormatter();
 
-        return Mono.just(new TimeData(LocalDateTime.now().format(dateFormat).toString()));
+        return Mono.just(new TimeData(LocalDateTime.now().format(dateFormat)));
     }
 
     public record TimeData(String time){}
