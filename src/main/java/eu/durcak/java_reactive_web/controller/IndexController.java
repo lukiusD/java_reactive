@@ -21,6 +21,12 @@ public class IndexController {
         return Mono.just(LocalDateTime.now().toString());
     }
 
+    @GetMapping(path="/notime", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Mono<String> getNoTime() {
+        // Vráti aktuálny čas ako reaktívny Mono
+        return Mono.just("AAAAAA");
+    }
+
     @GetMapping(path="/json-time", produces= MediaType.APPLICATION_JSON_VALUE)
     public Mono<TimeData> getJsonTime() {
         // Vráti aktuálny čas ako reaktívny Mono
