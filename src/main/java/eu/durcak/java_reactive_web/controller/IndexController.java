@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.SignStyle;
+import java.time.temporal.ChronoField;
 
 import static java.time.temporal.ChronoField.*;
 
@@ -37,6 +38,8 @@ public class IndexController {
                 .appendValue(MONTH_OF_YEAR, 2)
                 .appendLiteral('.')
                 .appendValue(YEAR, 4, 10, SignStyle.EXCEEDS_PAD)
+                .appendLiteral(' ')
+                .appendValue(CLOCK_HOUR_OF_DAY, 2)
                 .toFormatter();
 
         return Mono.just(new TimeData(LocalDateTime.now().format(dateFormat)));
